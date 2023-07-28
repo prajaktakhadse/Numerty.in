@@ -37,4 +37,11 @@ public class Employee {
 	@Column(name = "email_id")
 	@Email @NotEmpty
 	private String emailId;
+	
+	
+	private String profilePicture;
+	
+	private long size;
+	
+	private byte[] content;
 }
