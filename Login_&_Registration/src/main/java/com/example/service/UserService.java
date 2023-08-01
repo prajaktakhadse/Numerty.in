@@ -1,9 +1,29 @@
 package com.example.service;
 
-import com.example.dto.UserDto;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.model.User;
+import com.example.model.UserNotFoundException;
+import com.example.repo.UserRepo;
 
 
-public interface UserService {
+public class UserService {
+	
+	@Autowired
+	private UserRepo repo;
 
-	UserDto createUSer(UserDto user);
+	User createUSer(User user) {
+		return  repo.save(user) ;
+		
+	}
+	
+	
+	User loginUSer(Integer id , String email, String password) {
+		Optional<User> uid = repo.findById(id);
+		if(uid.isPresent()) {
+			
+		}
+	}
 }
